@@ -1,8 +1,6 @@
-import './css/App.css';
+import '../css/App.css';
 
 function handleSignup(event) {
-    event.preventDefault();
-
     fetch('http://localhost:8000/api/v1/auth/register/', {
         method: 'POST',
         headers: {
@@ -15,6 +13,7 @@ function handleSignup(event) {
         })
     }).then(data => {
             console.log(data);
+            window.location.reload();
         }).catch(error => {
             console.log('Error:', error.message);
     })

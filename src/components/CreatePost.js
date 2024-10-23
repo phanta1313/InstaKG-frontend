@@ -1,16 +1,9 @@
-import './css/App.css';
+import '../css/App.css';
 
 function CreatePostHandler(event) {
-    event.preventDefault();
-
     const access_token = localStorage.getItem('access_token');
-
-    if (!access_token) {
-        alert('Please log in');
-        return;
-    }
-
     const formData = new FormData();
+
     formData.append('text', document.getElementById('text').value);
     formData.append('image', document.getElementById('image').files[0]); // Выбираем файл
 
@@ -31,10 +24,10 @@ function CreatePostHandler(event) {
         })
         .then(data => {
             console.log('Post created successfully:', data);
+            window.location.reload();
         })
         .catch(error => {
-            console.log('Error:', error.message);
-
+            alert(error.message);
         });
 }
 

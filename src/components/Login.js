@@ -1,4 +1,4 @@
-import './css/App.css';
+import '../css/App.css';
 
 function loginHandler(event) {
     event.preventDefault();
@@ -22,7 +22,8 @@ function loginHandler(event) {
         .then(data => {
             if (data.access_token) {
                 localStorage.setItem('access_token', data.access_token);
-                console.log('Successfully logged in');
+                window.location.reload();
+
             }
         })
 
